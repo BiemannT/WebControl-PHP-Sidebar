@@ -1,0 +1,23 @@
+# Textdateien allgemein mit LF normalisieren
+*       text=auto
+
+*.php   text eol=lf diff=php
+*.css   text diff=css
+*.html  text diff=html
+*.ini   text
+*.js    text
+*.md    text diff=markdown
+*.svg   text
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.xml   text
+*.json  text
+
+# Dateien vom Export ausschließen
+.gitattributes   export-ignore
+.gitignore       export-ignore
+.gitkeep         export-ignore
+/test/**         export-ignore
