@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+    <style>
+        .LogoTitle {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 25px;
+            letter-spacing: 5px;
+        }
+    </style>
+    <defs>
+        <linearGradient id="Head" gradientTransform="rotate(-30)">
+            <stop offset="10%" stop-color="gray" />
+            <stop offset="70%" stop-color="lightgray" />
+        </linearGradient>
+    </defs>
+    <path d="M2.5,12h45v-7q0 -3 -3 -3h-39q-3 0 -3 3Z" fill="url('#Head')" />
+    <rect width="45" height="32" x="2.5" y="13" fill="#074275" />
+    <text x="6" y="38" class="LogoTitle" fill="white">BC</text>
+</svg>
