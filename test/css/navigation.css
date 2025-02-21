@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+/* General settings for navigation sidebar */
+@media screen {
+    body {
+        --NavigationWidthExpanded: 270px;
+        --NavigationWidthCollapsed: 60px;
+    }
+
+    /* General settings for the navigation sidebar */
+    nav.WebCtlSidebar {
+        --WebCtlSidebarWidth: var(--NavigationWidthExpanded);
+        --WebCtlSidebarMainItemSymbolSize: var(--NavigationWidthCollapsed);
+        --WebCtlSidebarSubItemSymbolSize: 30px;
+        --WebCtlSidebarMainItemTextSize: 1.3rem;
+        --WebCtlSidebarSubItemTextSize: 1.15rem;
+    }
+
+    /* Styling reset area, placed next to the navigation sidebar */
+    /* The reset area should be visible in the mobile-version only */
+    .NavigationReset {
+        display: none;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: var(--NavigationWidthExpanded);
+        z-index: 10;
+    }
+
+}
+
+/* Styling of the navigation sidebar for desktop-version */
+@media screen and (min-width: 40rem) {
+    /* The navigation sidebar should slide-in, when the main checkbox is set */
+    nav.WebCtlSidebar {
+        position: fixed;
+        left: calc((var(--WebCtlSidebarWidth) - var(--WebCtlSidebarMainItemSymbolSize)) * -1);
+        top: 0px;
+        bottom: 0px;
+        transition: left ease-out 300ms;
+
+        /* Show navigation sidebar */
+        &:has(> input[type=checkbox]:checked) {
+            left: 0px;
+            transition: left ease-in 300ms;
+        }
+    }
+
+    /* Move the main area according to the remaining view area */
+    nav.WebCtlSidebar:has( > input[type=checkbox]:checked ) ~ main {
+        left: var(--NavigationWidthExpanded);
+        transition: left ease-in 300ms;
+    }
+
+    /* Styling for the demo text */
+    main {
+        position: fixed;
+        left: var(--NavigationWidthCollapsed);
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        transition: left ease-out 300ms;
+
+        h1 {
+            margin-top: 100px;
+            text-align: center;
+        }
+    }
+}
+
+/* Styling of the navigation sidebar for mobile-version */
+@media screen and (max-width: 40rem) {
+    /* The navigation sidebar should slide-in horizontally and vertically, when the main checkbox is set */
+    nav.WebCtlSidebar {
+        position: fixed;
+        left: calc((var(--WebCtlSidebarWidth) - var(--WebCtlSidebarMainItemSymbolSize)) * -1);
+        top: 0px;
+        bottom: 0px;
+        height: calc(var(--WebCtlSidebarMainItemSymbolSize) + 10px);
+        overflow-y: hidden;
+        transition: all ease-in-out 300ms;
+
+        /* Show navigation sidebar */
+        &:has(> input[type=checkbox]:checked) {
+            left: 0px;
+            height: 100%;
+            overflow-y: auto;
+            transition: all ease-in-out 300ms;
+        }
+    }
+
+    /* Blur the demo text in the background, when the navigation sidebar is expanded */
+    nav.WebCtlSidebar:has(> input[type=checkbox]:checked) ~ main {
+        filter: blur(4px);
+        transition: filter ease 300ms;
+    }
+
+    /* Activate the reset area, when the navigation sidebar is expanded */
+    body:has(nav.WebCtlSidebar > input[type=checkbox]:checked) .NavigationReset {
+        display: block;
+    }
+
+    /* Styling for the demo text */
+    main {
+        position: fixed;
+        left: 0px;
+        top: 71px;
+        bottom: 0px;
+        right: 0px;
+
+        h1 {
+            margin-top: 100px;
+            text-align: center;
+        }
+    }
+}
