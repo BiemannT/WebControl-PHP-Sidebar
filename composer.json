@@ -1,0 +1,14 @@
+{
+    "name": "biemannt/webcontrol-php-sidebar",
+    "description": "PHP based generator to create a navigation sidebar",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tobias Biemann"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    }
+}
