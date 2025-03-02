@@ -1,0 +1,65 @@
+name: webcontrol-php-sidebar
+services:
+  php:
+    build: .
+    image: biemannt/php-develop:webcontrol-php-sidebar
+    
+    # Extra-Host Definition für XDebug
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+    volumes:
+      # Log-Dateien
+      - type: bind
+        source: ./dev/log
+        target: /var/log
+        read_only: false
+
+      # Public HTML-Dateien
+      - type: bind
+        source: ./public
+        target: /var/www/html
+        read_only: false
+
+      # PHP-Module
+      - type: bind
+        source: ./src
+        target: /var/www/modules
+
+    networks:
+      - internal
+  web:
+    image: nginx:alpine
+    volumes:
+      # NGINX-Server Konfiguration
+      - type: bind
+        source: ./dev/default.conf
+        target: /etc/nginx/conf.d/default.conf
+        read_only: true
+
+      # Log-Dateien
+      - type: bind
+        source: ./dev/log
+        target: /var/log/nginx
+        read_only: false
+
+      # Public HTML-Dateien
+      - type: bind
+        source: ./public
+        target: /var/www/html
+        read_only: false
+
+      # PHP-Module
+      - type: bind
+        source: ./src
+        target: /var/www/modules
+        read_only: false
+
+    working_dir: /var/www/html
+    ports:
+      - "8080:80"
+    networks:
+      - internal
+networks:
+  internal:
+    driver: bridge
