@@ -18,14 +18,12 @@
 
     /* Styling reset area, placed next to the navigation sidebar */
     /* The reset area should be visible in the mobile-version only */
-    .NavigationReset {
-        display: none;
+    .WebCtlSidebarReset {
         position: fixed;
         top: 0px;
         right: 0px;
         bottom: 0px;
         left: var(--NavigationWidthExpanded);
-        z-index: 10;
     }
 
 }
@@ -97,7 +95,7 @@
     }
 
     /* Activate the reset area, when the navigation sidebar is expanded */
-    body:has(nav.WebCtlSidebar > input[type=checkbox]:checked) .NavigationReset {
+    body:has(nav.WebCtlSidebar > input[type=checkbox]:checked) .WebCtlSidebarReset {
         display: block;
     }
 
