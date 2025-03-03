@@ -180,7 +180,7 @@
 @media (hover: hover) {
     .WebCtlSidebar {
         /* Element-Text */
-        li:has(> :where(.WebCtlSidebarItemSymbol:hover, .WebCtlSidebarItemTitle:hover)) > .WebCtlSidebarItemTitle {
+        li:has(> :where(.WebCtlSidebarItemSymbol:hover, .WebCtlSidebarItemTitle:hover)) > :is(a.WebCtlSidebarItemTitle, label.WebCtlSidebarItemTitle) {
             color: var(--ColNavBackgroundHover);
             transition: color ease-in-out 300ms;
         }
