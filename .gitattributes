@@ -12,6 +12,7 @@
 *.jpg   binary
 *.jpeg  binary
 *.gif   binary
+*.png   binary
 *.ico   binary
 *.xml   text
 *.json  text
@@ -28,4 +29,5 @@
 /public/demo     export-ignore
 /dev             export-ignore
 /.vscode         export-ignore
+/doc             export-ignore
 /public/index.php  export-ignore
