@@ -92,7 +92,7 @@ Auf die gleiche Weise können der Sidebar nun beliebig weitere Steuerelemente hi
 ## Stylesheet
 Um die Sidebar fehlerfrei darzustellen müssen ein paar Variablen in einem zusätzlichen css-Stylesheet definiert werden und die Positionierung der Sidebar festgelegt werden. Weitere Beispiele können den demo-Dateien entnommen werden.
 
-Folgende Variablen müssen explizit für die Instanz der Sidebar definiert werden.
+Folgende Variablen müssen explizit für die Instanz der Sidebar definiert werden:
 
 + **--WebCtlSidebarColBackground**: Eine Farbe, die als Hintergrundfarbe für die Sidebar verwendet wird
 + **--WebCtlSidebarColForeground**: Eine Farbe, die als Schriftfarbe für die Steuerelemente in der Sidebar verwendet wird
@@ -105,5 +105,58 @@ Folgende Variablen müssen explizit für die Instanz der Sidebar definiert werde
 
 # Funktionsreferenz
 ## Klasse Main
+### Methoden
+#### Konstruktor
+```php
+new Webcontrol\Sidebar\Main(string $mainElementName, string $IDprefix, bool $hasMainExpander = true)
+```
+Erstellt eine neue Instanz für die Sidebar. Die Übergabeparameter haben folgende Bedeutung:
+
++ **$mainElementName**: *Erforderlich* Der Name für das HTML-Element, das als Wurzelelement für die Sidebar dienen soll, z.B. **nav**.
++ **$IDprefix**: *Erforderlich* Ein Name, der allen ID-Namen für die internen \<input>-Elemente vorangestellt wird. Der ID-Name darf an anderen Stellen im HTML-Dokument nicht verwendet werden, um die Eindeutigkeit zu gewährleisten.
++ **$hasMainExpander**: *Optional* Wenn *true*, kann die Sidebar verkleinert und vergrößert werden. In dem Fall wird der Sidebar als erstes Element ein `<input type="checkbox">`-Element hinzugefügt. Die ID für dieses Element lautet *$IDprefix*MainExp. Für die Funktion ist in der Sidebar mindestens ein Item mit aktivierter Eigenschaft *$isMainExpanderController* erforderlich. Durch Auswertung der CSS-Pseudoklasse `:checked` kann in einem benutzerdefinierten Stylesheet die Sidebar verkleinert und vergrößert werden.
+
+#### appendItem()
+```php
+public function appendItem(Webcontrol\Sidebar\Item $NewItem):void
+```
+Fügt der Sidebar ein neues Steuerelement hinzu.
+
++ **$NewItem**: *Erforderlich* Eine Instanz der Klasse `Item`. In der gleichen Reihenfolge wie die Elemente hinzugefügt wurden, werden die Elemente in der Sidebar dargestellt.
+
+#### generateHTML()
+```php
+public function generateHTML():string
+```
+Erzeugt entsprechend der definierten Elemente den HTML-Code und gibt diesen als Text zurück. Dabei werden die einzelnen Elemente in der Reihenfolge erzeugt, mit der diese mit der Methode `appendItem()` hinzugefügt wurden.
+
+#### generateResetElementHTML()
+```php
+public function generateResetElementHTML():string
+```
+Erzeugt ein `<label class="WebCtlSidebarReset">`-Element, welches auf die Haupt-Checkbox `<input type="checkbox">` der Sidebar verweist und gibt den HTML-Code als Text zurück. Mit diesem Element kann an beliebiger Stelle im HTML-Code eine Reset-Schaltfläche erzeugt werden, durch die die Sidebar verkleinert wird. Diese Reset-Fläche könnte z.B. neben der Sidebar angeordnet werden, um durch einen Klick neben der Sidebar diese zu verkleinern.
+
+In der Stylesheet Definition der Sidebar ist dieses Element standardmäßig ausgeblendet. Durch Auswertung der CSS-Pseudoklasse `:checked` von der Hauptcheckbox der Sidebar könnte diese Reset-Fläche aktiviert werden. Diese Definition muss in einem benutzerdefinierten Stylesheet erfolgen. Ein Beispiel hierzu kann dem Stylesheet aus dem `demo`-Ordner entnommen werden.
+
+Damit dieses HTML-Element funktionieren kann ist es erforderlich, dass die `Main`-Klasse mit der Eigenschaft `$hasMainExpander = true` instanziiert wurde.
+
+### Eigenschaften
+#### showSidebarExpanded
+```php
+public bool $showSidebarExpanded
+```
+Wenn **true**, wird die Sidebar beim Öffnen der HTML-Seite vergrößert dargestellt, ansonsten verkleinert.
+
+Der Standardwert ist **false**.
+
+Damit diese Eigenschaft wirksam ist, muss die Klasse mit der Eigenschaft `$hasMainExpander = true` instanziiert werden.
+
+#### showActiveElementExpanded
+```php
+public bool $showActiveElementExpanded
+```
+Wenn **true**, werden die Unterebenen zu den als aktiv gekennzeichneten Elementen geöffnet dargestellt. Ansonsten werden alle Ebenen geschlossen dargestellt.
+
+Mindestens bei einem `Item`-Element muss die Eigenschaft `$isActiveItem = true` gesetzt werden.
 
 ## Klasse Item
