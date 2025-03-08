@@ -31,11 +31,22 @@ Dieses Modul kann mit Hilfe von [Composer](https://getcomposer.org) in die Umgeb
 }
 ```
 
-# Datei-Struktur
-Folgende Dateien sind in diesem Modul-Paket enthalten:
+# Datei und Ordner-Struktur
 
-## /src/Webcontrol_Sidebar.php
-Hierbei handelt es sich um die Haupt-Programmdatei, die die erforderlichen Klassen zur Erstellung der Sidebar enthalten. Es wird empfohlen diese Datei in einem Ordner abzulegen, die nicht vom Webserver erreichbar ist, sondern nur vom PHP Interpreter erreicht werden kann.
+## Ordner src
+In diesem Ordner befinden sich die php-Modul-Dateien mit den erforderlichen Klassen für dieses Modul. Es wird empfohlen diese Dateien nicht in einem Unterordner vom Wurzelverzeichnis des Web-Projekts abzulegen, sondern in einem separaten Verzeichnis, um diese Dateien vor dem Web-Nutzer zu verstecken.
 
-## /public/css/Webcontrol_Sidebar.css
-Dieses Stylesheet enthält allgemeine Einstellungen zur Verwendung der Sidebar im Web-Projekt. Grundlegende Einstellungen wie die Positionierung und Größe der Sidebar, sowie Farben und Schriften müssen übergeordnet in einem Stylesheet im Web-Projekt definiert werden. Dies ermöglicht eine überaus flexible Verwendung der Sidebar. Diese Datei soll in einem zentralen Stylesheet-Ordner abgelegt werden, welcher vom Webserver abgerufen werden kann.
+### Webcontrol_Sidebar.php
+Hierbei handelt es sich um die Haupt-Programmdatei, die die erforderlichen Klassen zur Erstellung der Sidebar enthalten.
+
+## Ordner public/css
+In diesem Ordner befinden sich die Stylesheet mit generellen Einstellungen zur Nutzung dieses Moduls. Diese Dateien müssen in einem Unterordner vom Wurzelverzeichnis des Web-Projekts abgelegt werden, um vom Web-Nutzer abgerufen werden zu können. Spezifische Stylesheets sind darüberhinausgehend für das Web-Projekt erforderlich, um z.B. die Positionierung und Größe, sowie Farben und Schriften für die Verwendung dieses Moduls festzulegen. Dies ermöglicht eine hohe Flexibilität bei der Verwendung dieses Moduls. Welche Eigenschaften speziell benötigt werden wird in der folgenden Dokumentation genannt.
+
+### Webcontrol_Sidebar.css
+Dieses Stylesheet enthält allgemeine Einstellungen zur Verwendung der Sidebar im Web-Projekt.
+
+## Ordner public/js
+In diesem Ordner befinden sich JavaScript-Dateien, um zusätzliche Funktionen für den Web-Nutzer bereitzustellen. Diese Dateien müssen in einem Unterordner vom Wurzelverzeichnis des Web-Projekts abgelegt werden, um vom Web-Nutzer abgerufen werden zu können.
+
+## Ordner public/demo
+In diesem Ordner befinden sich Beispiel Webseiten zur Demonstration dieses Moduls. Um die Beispiele zu testen ist eine lokale Docker Installation erforderlich. Nachdem die Dateien aus diesem Repository lokal kopiert wurden kann der vorkonfigurierte Webserver über die Datei `compose.yaml` mit Docker gestartet werden. Die Beispiele sind dann über `localhost:8080/demo/` abrufbar.
