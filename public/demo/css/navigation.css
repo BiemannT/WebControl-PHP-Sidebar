@@ -9,6 +9,10 @@
 
     /* General settings for the navigation sidebar */
     nav.WebCtlSidebar {
+        --WebCtlSidebarColBackground: var(--ColNavBackground);
+        --WebCtlSidebarColHover: var(--ColNavBackgroundHover);
+        --WebCtlSidebarColForeground: var(--ColNavForeground);
+        
         --WebCtlSidebarWidth: var(--NavigationWidthExpanded);
         --WebCtlSidebarMainItemSymbolSize: var(--NavigationWidthCollapsed);
         --WebCtlSidebarSubItemSymbolSize: 30px;

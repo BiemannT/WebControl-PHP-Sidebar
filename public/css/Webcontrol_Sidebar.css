@@ -3,9 +3,9 @@
 /* Stylesheet für die Navigations-Seitenleiste */
 
 /* Benötigte Variablen:
-    --ColNavBackground: Hintergrundfarbe
-    --ColNavBackgroundHover: Textfarbe, wenn Mauszeiger auf dem Steuerelement
-    --ColNavForeground: Textfarbe
+    --WebCtlSidebarColBackground: Hintergrundfarbe
+    --WebCtlSidebarColHover: Textfarbe, wenn Mauszeiger auf dem Steuerelement
+    --WebCtlSidebarColForeground: Textfarbe
 
     --WebCtlSidebarWidth: Breite der Menüleiste
     --WebCtlSidebarMainItemSymbolSize: Breite für Symbole auf den Hauptebenen
@@ -19,8 +19,8 @@
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: thin;
-    background-color: var(--ColNavBackground);
-    color: var(--ColNavForeground);
+    background-color: var(--WebCtlSidebarColBackground);
+    color: var(--WebCtlSidebarColForeground);
     z-index: 10;
 
     /* Generelle Listeneinstellungen */
@@ -101,7 +101,7 @@
 
     /* Styling für aktivierte Elemente */
     .WebCtlSidebarItemActive {
-        text-shadow: var(--ColNavForeground) 0px 0px 10px;
+        text-shadow: var(--WebCtlSidebarColForeground) 0px 0px 10px;
         font-style: italic;
     }
 
@@ -110,7 +110,7 @@
         padding: 5px;
 
         svg .WebCtlIcon {
-            stroke: var(--ColNavForeground);
+            stroke: var(--WebCtlSidebarColForeground);
             stroke-opacity: 1;
             transition: all ease-in-out 300ms;
         }
@@ -131,7 +131,7 @@
         padding-bottom: 5px;
         border-bottom-style: solid;
         border-bottom-width: 1px;
-        border-bottom-color: var(--ColNavForeground);
+        border-bottom-color: var(--WebCtlSidebarColForeground);
         font-size: var(--WebCtlSidebarMainItemTextSize);
 
         /* Menü-Button an oberster Stelle anheften */
@@ -139,7 +139,7 @@
             position: sticky;
             top: 0px;
             z-index: 11;
-            background-color: var(--ColNavBackground);
+            background-color: var(--WebCtlSidebarColBackground);
         }
 
         /* Styling für folgende Ebenen */
@@ -182,13 +182,13 @@
     .WebCtlSidebar {
         /* Element-Text */
         li:has(> :where(.WebCtlSidebarItemSymbol:hover, .WebCtlSidebarItemTitle:hover)) > :is(a.WebCtlSidebarItemTitle, label.WebCtlSidebarItemTitle) {
-            color: var(--ColNavBackgroundHover);
+            color: var(--WebCtlSidebarColHover);
             transition: color ease-in-out 300ms;
         }
 
         /* Expander-Icon */
         .WebCtlSidebarItemExpander:hover svg .WebCtlIcon {
-            stroke: var(--ColNavBackgroundHover);
+            stroke: var(--WebCtlSidebarColHover);
             transition: all ease-in-out 300ms;
         }
     }

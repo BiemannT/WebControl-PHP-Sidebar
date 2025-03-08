@@ -92,18 +92,18 @@ Auf die gleiche Weise können der Sidebar nun beliebig weitere Steuerelemente hi
 ## Stylesheet
 Um die Sidebar fehlerfrei darzustellen müssen ein paar Variablen in einem zusätzlichen css-Stylesheet definiert werden und die Positionierung der Sidebar festgelegt werden. Weitere Beispiele können den demo-Dateien entnommen werden.
 
-### Globale Variablen
-Folgende globale Variablen müssen definiert werden, die auch von anderen Webcontrol-Steuerelemente wiederverwendet werden. Üblicherweise erfolgt die Definition im `:root {}`-Element.
+Folgende Variablen müssen explizit für die Instanz der Sidebar definiert werden.
 
-+ **--ColNavBackground**: Eine Farbe, die als Hintergrundfarbe für die Sidebar verwendet wird
-+ **--ColNavBackgrundHover**: Eine Farbe als Hover-Effekt, die verwendet wird, um ein Steuerelement farblich hervorzuheben, wenn der Mauszeiger sich über diesem Steuerelement befindet
-+ **--ColNavForeground**: Eine Farbe, die als Schriftfarbe für die Steuerelemente in der Sidebar verwendet wird
-
-### Lokale Variablen
-Folgende lokale Variablen müssen explizit für die Instanz der Sidebar definiert werden.
-
++ **--WebCtlSidebarColBackground**: Eine Farbe, die als Hintergrundfarbe für die Sidebar verwendet wird
++ **--WebCtlSidebarColForeground**: Eine Farbe, die als Schriftfarbe für die Steuerelemente in der Sidebar verwendet wird
++ **--WebCtlSidebarColHover**: Eine Farbe als Hover-Effekt, die verwendet wird, um ein Steuerelement farblich hervorzuheben, wenn sich der Mauzeiger über dem Steuerelement befindet
 + **--WebCtlSidebarWidth**: Eine Größenangabe, um die Gesamt-Breite der Sidebar zu definieren
 + **--WebCtlSidebarMainItemSymbolSize**: Eine Größenangabe, um die Größe der Symbole auf der ersten Hauptebene zu definieren
 + **--WebCtlSidebarSubItemSymbolSize**: Eine Größenangabe, um die Größe der Symbole für Unterelemente zu definieren
 + **--WebCtlSidebarMainItemTextSize**: Eine Größenangabe, um die Schriftgröße für die Elemente in der ersten Hauptebene zu definieren
 + **--WebCtlSidebarSubItemTextSize**: Eine Größenangabe, um die Schriftgröße für Unterelemente zu definieren
+
+# Funktionsreferenz
+## Klasse Main
+
+## Klasse Item
