@@ -108,7 +108,7 @@ Folgende Variablen müssen explizit für die Instanz der Sidebar definiert werde
 ### Methoden
 #### Konstruktor
 ```php
-new Webcontrol\Sidebar\Main(string $mainElementName, string $IDprefix, bool $hasMainExpander = true)
+public function __construct(string $mainElementName, string $IDprefix, bool $hasMainExpander = true)
 ```
 Erstellt eine neue Instanz für die Sidebar. Die Übergabeparameter haben folgende Bedeutung:
 
@@ -160,3 +160,70 @@ Wenn **true**, werden die Unterebenen zu den als aktiv gekennzeichneten Elemente
 Mindestens bei einem `Item`-Element muss die Eigenschaft `$isActiveItem = true` gesetzt werden.
 
 ## Klasse Item
+### Methoden
+#### Konstruktor
+```php
+public function __construct(string $title)
+```
+Erstellt eine neue Instanz für ein Steuerelement in der Sidebar.
+
++ **$title**: *Erforderlich* Der Name für das Steuerelement, welcher in der Sidebar angezeigt wird.
+
+#### appendItem()
+```php
+public function appendItem(Webcontrol\Sidebar\Item $NewItem):void
+```
+Fügt diesem Steuerelement weitere Unterelemente hinzu.
+
++ **$NewItem**: *Erforderlich* Eine Instanz der Klasse `Item`. In der gleichen Reihenfolge wie die Elemente hinzugefügt wurden, werden die Elemente in der Sidebar dargestellt.
+
+#### hasActiveItem()
+```php
+public function hasActiveItem():bool
+```
+Diese Funktion gibt **true** zurück, wenn mindestens ein Unterelement mit der Eigenschaft `$isActiveItem = true` markiert ist. Ansonsten wird **false** zurückgegeben.
+
+#### getChildItems()
+```php
+public function getChildItems():array
+```
+Diese Funktion gibt alle zugeordneten Unterelemente als Array zurück, in der gleichen Reihenfolge wie die Elemente mit der Methode `appendItem()` hinzugefügt wurden. Bei allen Elementen handelt es sich um eine Instanz vom Typ `Webcontrol\Sidebar\Item`.
+
+Wenn noch keine Unterelemente hinzugefügt wurden, wird ein leeres Array zurückgegeben.
+
+Wenn die Eigenschaft `isMainExpanderController = true` ist, wird ein leeres Array zurückgegeben, unabhängig davon ob Unterelemente hinzugefügt wurden, oder nicht.
+
+#### getTitle()
+```php
+public function getTitle():string
+```
+Gibt den Namen des Steuerelements als Text zurück, der bei der Instanzierung angegeben wurde.
+
+### Eigenschaften
+#### isActiveItem
+```php
+public bool $isActiveItem
+```
+Wenn **true**, wird dieses Steuerelement in der Sidebar als aktives Element farblich hervorgehoben.
+
+Der Standardwert ist **false**.
+
+Diese Eigenschaft wird ignoriert, wenn die Eigenschaft `isMainExpanderController = true` ist.
+
+#### isMainExpanderController
+```php
+public bool $isMainExpanderController
+```
+Wenn **true**, wird dieses Steuerelement dazu verwendet, die Sidebar zu vergrößern und zu verkleinern. In diesem Fall wird die Eigenschaft `linkHref` ignoriert. Damit dieses Steuerelement wirksam ist, muss die Eigenschaft `hasMainExpander = true` bei der Instanzierung der `Main`-Klasse gesetzt werden.
+
+#### linkHref
+```php
+public string $linkHref
+```
+Diese Eigenschaft ist optional und legt eine URL für dieses Steuerelement fest. Wenn eine URL gesetzt wurde, wird der Titel dieses Elements als Link definiert.
+
+#### symbolHref
+```php
+public string $symbolHref
+```
+Diese Eigenschaft ist optional und legt eine URL zu einer Symbol-Datei fest, das neben dem Titel angezeigt wird. Es kann jeder Dateityp verlinkt werden, der in einem `<img>`-Element verwendet werden kann. Es wird empfohlen ein Symbol mit quadratischen Abmessungen zu verwenden.
