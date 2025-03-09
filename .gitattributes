@@ -25,7 +25,9 @@
 .gitkeep         export-ignore
 .yaml            export-ignore
 /Dockerfile      export-ignore
+/*.yaml          export-ignore
 /README.md       export-ignore
+/LICENSE         export-ignore
 /public/demo     export-ignore
 /dev             export-ignore
 /.vscode         export-ignore
