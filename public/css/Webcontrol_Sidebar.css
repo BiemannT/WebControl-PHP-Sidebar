@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+/* Stylesheet für die Navigations-Seitenleiste */
+
+/* Benötigte Variablen:
+    --WebCtlSidebarColBackground: Hintergrundfarbe
+    --WebCtlSidebarColHover: Textfarbe, wenn Mauszeiger auf dem Steuerelement
+    --WebCtlSidebarColForeground: Textfarbe
+
+    --WebCtlSidebarWidth: Breite der Menüleiste
+    --WebCtlSidebarMainItemSymbolSize: Breite für Symbole auf den Hauptebenen
+    --WebCtlSidebarSubItemSymbolSize: Breite für Symbole von Unterelementen
+    --WebCtlSidebarMainItemTextSize: Schriftgröße für die Hauptelemente
+    --WebCtlSidebarSubItemTextSize: Schriftgröße für Unterelemente
+*/
+
+.WebCtlSidebar {
+    width: var(--WebCtlSidebarWidth);
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    background-color: var(--WebCtlSidebarColBackground);
+    color: var(--WebCtlSidebarColForeground);
+    z-index: 10;
+
+    /* Generelle Listeneinstellungen */
+    ul {
+        list-style: none;
+    }
+
+    /* Checkboxen dienen nur zur Sichtbarkeit der einzelnen Ebenen */
+    input[type=checkbox] {
+        display: none;
+    }
+
+    /* Normalisierung aller <a>-Elemente */
+    a,
+    a:visited,
+    a:link,
+    a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Allgemeine Einstellungen für alle Elemente */
+    .WebCtlSidebarItemSymbol,
+    .WebCtlSidebarItemTitle,
+    .WebCtlSidebarItemExpander {
+        align-content: center;
+        cursor: pointer;
+        padding: 5px;
+
+        > * {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    /* Platzierung der Elemente im Grid */
+    > ul > li  {
+
+        /* Anordnung auf der Hauptebene */
+        .WebCtlSidebarItemExpander {
+            grid-row: 1;
+            grid-column: 1;
+        }
+
+        .WebCtlSidebarItemTitle {
+            grid-row: 1;
+            grid-column: 2;
+        }
+
+        .WebCtlSidebarItemSymbol {
+            grid-row: 1;
+            grid-column: 3;
+        }
+
+        ul > li {
+            /* Anordnung auf Unterebenen */
+            .WebCtlSidebarItemExpander {
+                grid-row: 1;
+                grid-column: 1;
+            }
+
+            .WebCtlSidebarItemSymbol {
+                grid-row: 1;
+                grid-column: 2;
+            }
+
+            .WebCtlSidebarItemTitle {
+                grid-row: 1;
+                grid-column: 3;
+            }
+
+            .WebCtlSidebarItemTitle:only-child {
+                grid-column-start: 2;
+                grid-column-end: 4;
+            }
+        }
+    }
+
+    /* Styling für aktivierte Elemente */
+    .WebCtlSidebarItemActive {
+        text-shadow: var(--WebCtlSidebarColForeground) 0px 0px 10px;
+        font-style: italic;
+    }
+
+    /* Styling für das Expander-Icon */
+    .WebCtlSidebarItemExpander {
+        padding: 5px;
+
+        svg .WebCtlIcon {
+            stroke: var(--WebCtlSidebarColForeground);
+            stroke-opacity: 1;
+            transition: all ease-in-out 300ms;
+        }
+    }
+
+    label.WebCtlSidebarItemExpander:has(~ input[type=checkbox]:checked) svg .WebCtlIcon.HideExpanded {
+        stroke-opacity: 0;
+        transition: all ease-in-out 300ms;
+    }
+
+    /* Styling für die erste Ebene */
+    > ul > li {
+        display: grid;
+        grid-template-columns: 30px auto var(--WebCtlSidebarMainItemSymbolSize);
+        grid-template-rows: var(--WebCtlSidebarMainItemSymbolSize) auto;
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: var(--WebCtlSidebarColForeground);
+        font-size: var(--WebCtlSidebarMainItemTextSize);
+
+        /* Menü-Button an oberster Stelle anheften */
+        &.WebCtlSidebarItemMenu {
+            position: sticky;
+            top: 0px;
+            z-index: 11;
+            background-color: var(--WebCtlSidebarColBackground);
+        }
+
+        /* Styling für folgende Ebenen */
+        ul {
+            display: none; /* Wird erst eingeblendet, wenn benachbarte Checkbox aktiviert ist */
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row: 2;
+            margin-left: 10px;
+            padding-left: 5px;
+
+            > li {
+                display: grid;
+                grid-template-columns: 30px var(--WebCtlSidebarSubItemSymbolSize) auto;
+                grid-template-rows: auto;
+                font-size: var(--WebCtlSidebarSubItemTextSize);
+            }
+        }
+
+        /* Unterebene einblenden, wenn Checkbox aktiviert ist */
+        input[type=checkbox]:checked ~ ul {
+            display: block;
+        }
+    }
+
+    /* Alle Untermenüs ausblenden, wenn das Hauptmenü nicht geöffnet ist */
+    > :not(input[type=checkbox]:checked) ~ ul > li > ul {
+        display: none;
+    }
+}
+
+/* Das Reset-Element ist normalerweise ausgeblendet */
+.WebCtlSidebarReset {
+    display: none;
+    z-index: 10;
+}
+
+/* Hover-Effekte, wenn vom Endgerät unterstützt */
+@media (hover: hover) {
+    .WebCtlSidebar {
+        /* Element-Text */
+        li:has(> :where(.WebCtlSidebarItemSymbol:hover, .WebCtlSidebarItemTitle:hover)) > :is(a.WebCtlSidebarItemTitle, label.WebCtlSidebarItemTitle) {
+            color: var(--WebCtlSidebarColHover);
+            transition: color ease-in-out 300ms;
+        }
+
+        /* Expander-Icon */
+        .WebCtlSidebarItemExpander:hover svg .WebCtlIcon {
+            stroke: var(--WebCtlSidebarColHover);
+            transition: all ease-in-out 300ms;
+        }
+    }
+}

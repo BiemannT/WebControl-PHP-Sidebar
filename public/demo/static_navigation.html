@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Webcontrol PHP Sidebar Demo</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="referrer" content="no-referrer" />
+        <meta name="apple-mobile-web-app-title" content="Biemann Controls" />
+        <link rel="icon" type="image/x-icon" href="./favicon.ico" sizes="48x48" />
+        <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" sizes="any" />
+        <link rel="apple-touch-icon" href="./favicon/apple-touch-icon.png" sizes="180x180" />
+        <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" sizes="48x48" />
+        <link rel="manifest" href="./favicon/site.webmanifest" />
+        <link rel="stylesheet" type="text/css" href="./css/general.css" />
+        <link rel="stylesheet" type="text/css" href="/css/Webcontrol_Sidebar.css" />
+        <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
+    </head>
+    <body>
+        <nav class="WebCtlSidebar">
+            <input type="checkbox" id="WebCtlNavExp" />
+            <ul>
+                <li class="WebCtlSidebarItemMenu">
+                    <!-- Hier kein Expander-Element, da keine Unterelemente -->
+                    <label for="WebCtlNavExp" class="WebCtlSidebarItemTitle">
+                        <p>Menu</p>
+                    </label>
+                    <label for="WebCtlNavExp" class="WebCtlSidebarItemSymbol">
+                        <img src="./pic/menu.svg" alt="Menu" />
+                    </label>
+                </li>
+
+                <li>
+                    <!-- Hier kein Expander-Element, da keine Unterelemente -->
+                    <a href="/" class="WebCtlSidebarItemTitle" title="Start">
+                        <p>Start</p>
+                    </a>
+                    <a href="/" class="WebCtlSidebarItemSymbol" title="Start">
+                        <img src="./pic/home.svg" alt="Start" />
+                    </a>
+                </li>
+
+                <li>
+                    <label for="WebCtlNavItem1" class="WebCtlSidebarItemExpander">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                            <circle class="WebCtlIcon" cx="25" cy="25" r="23" stroke-width="3" fill="none" />
+                            <line class="WebCtlIcon HideExpanded" x1="25" x2="25" y1="10" y2="40" stroke-width="5" />
+                            <line class="WebCtlIcon" x1="10" x2="40" y1="25" y2="25" stroke-width="5" />
+                        </svg>
+                    </label>
+                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 1">
+                        <p>Item 1</p>
+                    </a>
+                    <a href="/" class="WebCtlSidebarItemSymbol" title="Item 1">
+                        <img src="./pic/star.svg" alt="Item 1" />
+                    </a>
+                    <input type="checkbox" id="WebCtlNavItem1" />
+                    <ul>
+                        <li>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 1">
+                                <img src="./pic/label.svg" alt="Item 1" />
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 1">
+                                <p>Subitem 1</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 2">
+                                <img src="./pic/label.svg" alt="Item 2" />
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 2">
+                                <p>Subitem 2</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 3">
+                                <img src="./pic/label.svg" alt="Item 3" />
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 3">
+                                <p>Subitem 3</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <label for="WebCtlNavItem2" class="WebCtlSidebarItemExpander">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                            <circle class="WebCtlIcon" cx="25" cy="25" r="23" stroke-width="3" fill="none" />
+                            <line class="WebCtlIcon HideExpanded" x1="25" x2="25" y1="10" y2="40" stroke-width="5" />
+                            <line class="WebCtlIcon" x1="10" x2="40" y1="25" y2="25" stroke-width="5" />
+                        </svg>
+                    </label>
+                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 2">
+                        <p>Item 2</p>
+                    </a>
+                    <a href="/" class="WebCtlSidebarItemSymbol" title="Item 2">
+                        <img src="./pic/star.svg" alt="Item 2" />
+                    </a>
+                    <input type="checkbox" id="WebCtlNavItem2" />
+                    <ul>
+                        <li>
+                            <label for="WebCtlNavItem21" class="WebCtlSidebarItemExpander">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <circle class="WebCtlIcon" cx="25" cy="25" r="23" stroke-width="3" fill="none" />
+                                    <line class="WebCtlIcon HideExpanded" x1="25" x2="25" y1="10" y2="40" stroke-width="5" />
+                                    <line class="WebCtlIcon" x1="10" x2="40" y1="25" y2="25" stroke-width="5" />
+                                </svg>
+                            </label>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 1">
+                                <img src="./pic/label.svg" alt="Item 1" />
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 1">
+                                <p>Subitem 1</p>
+                            </a>
+                            <input type="checkbox" id="WebCtlNavItem21" />
+                            <ul>
+                                <li>
+                                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 1">
+                                        <p>New Subitem 1</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 2">
+                                        <p>New Subitem 2</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 3">
+                                        <p>New Subitem 3</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 2">
+                                <img src="./pic/label.svg" alt="Item 2">
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 2">
+                                <p>Subitem 2</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 3">
+                                <img src="./pic/label.svg" alt="Item 3" />
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 3">
+                                <p>Subitem 3</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <label for="WebCtlNavItem3" class="WebCtlSidebarItemExpander">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                            <circle class="WebCtlIcon" cx="25" cy="25" r="23" stroke-width="3" fill="none" />
+                            <line class="WebCtlIcon HideExpanded" x1="25" x2="25" y1="10" y2="40" stroke-width="5" />
+                            <line class="WebCtlIcon" x1="10" x2="40" y1="25" y2="25" stroke-width="5" />
+                        </svg>
+                    </label>
+                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 3">
+                        <p>Item 3</p>
+                    </a>
+                    <a href="/" class="WebCtlSidebarItemSymbol" title="Item 3">
+                        <img src="./pic/star.svg" alt="Item 3" />
+                    </a>
+                    <input type="checkbox" id="WebCtlNavItem3" />
+                    <ul>
+                        <li>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 1">
+                                <img src="./pic/label.svg" alt="Item 1" />
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 1">
+                                <p>Subitem 1</p>
+                            </a>
+                        </li>
+                        <li>
+                            <label for="WebCtlNavItem32" class="WebCtlSidebarItemExpander">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <circle class="WebCtlIcon" cx="25" cy="25" r="23" stroke-width="3" fill="none" />
+                                    <line class="WebCtlIcon HideExpanded" x1="25" x2="25" y1="10" y2="40" stroke-width="5" />
+                                    <line class="WebCtlIcon" x1="10" x2="40" y1="25" y2="25" stroke-width="5" />
+                                </svg>
+                            </label>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 2">
+                                <img src="./pic/label.svg" alt="Item 2" />
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 2">
+                                <p>Subitem 2</p>
+                            </a>
+                            <input type="checkbox" id="WebCtlNavItem32" />
+                            <ul>
+                                <li>
+                                    <label for="WebCtlNavItem321" class="WebCtlSidebarItemExpander">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                            <circle class="WebCtlIcon" cx="25" cy="25" r="23" stroke-width="3" fill="none" />
+                                            <line class="WebCtlIcon HideExpanded" x1="25" x2="25" y1="10" y2="40" stroke-width="5" />
+                                            <line class="WebCtlIcon" x1="10" x2="40" y1="25" y2="25" stroke-width="5" />
+                                        </svg>
+                                    </label>
+                                    <a href="/" class="WebCtlSidebarItemSymbol" title="Item 1">
+                                        <img src="./pic/label.svg" alt="Item 1" />
+                                    </a>
+                                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 1">
+                                        <p>New Subitem 1</p>
+                                    </a>
+                                    <input type="checkbox" id="WebCtlNavItem321" />
+                                    <ul>
+                                        <li>
+                                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 1">
+                                                <img src="./pic/label.svg" alt="Item 1" />
+                                            </a>
+                                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 1">
+                                                <p>Extralong newest new Subitem 1</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/" class="WebCtlSidebarItemSymbol" title="Item 2">
+                                        <img src="./pic/label.svg" alt="Item 2" />
+                                    </a>
+                                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 2">
+                                        <p>New Subitem 2</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="WebCtlSidebarItemSymbol" title="Item 3">
+                                        <img src="./pic/label.svg" alt="Item 3" />
+                                    </a>
+                                    <a href="/" class="WebCtlSidebarItemTitle" title="Item 3">
+                                        <p>New Subitem 3</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <label for="WebCtlNavItem324" class="WebCtlSidebarItemExpander">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                            <circle class="WebCtlIcon" cx="25" cy="25" r="23" stroke-width="3" fill="none" />
+                                            <line class="WebCtlIcon HideExpanded" x1="25" x2="25" y1="10" y2="40" stroke-width="5" />
+                                            <line class="WebCtlIcon" x1="10" x2="40" y1="25" y2="25" stroke-width="5" />
+                                        </svg>
+                                    </label>
+                                    <div class="WebCtlSidebarItemSymbol">
+                                        <img src="./pic/label.svg" alt="Item 4" />
+                                    </div>
+                                    <div class="WebCtlSidebarItemTitle">
+                                        <p>New Subitem 4</p>
+                                    </div>
+                                    <input type="checkbox" id="WebCtlNavItem324" />
+                                    <ul>
+                                        <li>
+                                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 1">
+                                                <img src="./pic/label.svg" alt="Item 1" />
+                                            </a>
+                                            <a href="/" class="WebCtlSidebarItemTitle WebCtlSidebarItemActive">
+                                                <p>Inactive old item 123</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/" class="WebCtlSidebarItemSymbol" title="Item 3">
+                                <img src="./pic/label.svg" alt="Item 3" />
+                            </a>
+                            <a href="/" class="WebCtlSidebarItemTitle" title="Item 3">
+                                <p>Subitem 3</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <label for="WebCtlNavExp" class="WebCtlSidebarReset"></label>
+        <main>
+            <h1>Webcontrol PHP Sidebar Demo</h1>
+        </main>
+    </body>
+</html>
