@@ -16,14 +16,17 @@
 *.ico   binary
 *.xml   text
 *.json  text
+*.lock  text
 *.conf  text
 *.yaml  text
+*.sh    text eol=lf
+*.woff  binary
+*.woff2 binary
 
 # Dateien vom Export ausschließen
 .gitattributes   export-ignore
 .gitignore       export-ignore
 .gitkeep         export-ignore
-.yaml            export-ignore
 /Dockerfile      export-ignore
 /*.yaml          export-ignore
 /README.md       export-ignore
