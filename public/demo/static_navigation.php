@@ -107,7 +107,6 @@
 
         // Subitem 2
         $NavSidebarSubItem = new SbItem("Subitem 2");
-        $NavSidebarSubItem->symbolHref = "./pic/label.svg";
         $NavSidebarSubItem->linkHref = "#";
 
             // New Subitem 1
