@@ -65,7 +65,7 @@ Die Sidebar kann dann über den Konstruktor der Klasse `Main` initialisiert werd
 ```php
 $NavSidebar = new SbMain("nav", "WebCtlNav");
 ```
-Mit den Parametern wird angegeben, dass der generierte HTML-Code in ein  `<nav>`-Element eingebettet werden soll und die darin erzeugten `<input>`-Elemente mit der **ID** `WebCtlNav` beginnen sollen.
+Mit den Parametern wird angegeben, dass der generierte HTML-Code in ein  `<nav>`-Element eingebettet werden soll und die darin erzeugten `<input>`-Elemente mit der **ID** `WebCtlNav` beginnen sollen. Das `<nav>`-Element erhält als **ID** den Namen `WebCtlNav`.
 
 Ein Steuerelement für die Sidebar kann über den Konstruktor der Klasse `Item` initialisiert werden:
 ```php
@@ -113,7 +113,7 @@ public function __construct(string $mainElementName, string $IDprefix, bool $has
 Erstellt eine neue Instanz für die Sidebar. Die Übergabeparameter haben folgende Bedeutung:
 
 + **$mainElementName**: *Erforderlich* Der Name für das HTML-Element, das als Wurzelelement für die Sidebar dienen soll, z.B. **nav**.
-+ **$IDprefix**: *Erforderlich* Ein Name, der allen ID-Namen für die internen \<input>-Elemente vorangestellt wird. Der ID-Name darf an anderen Stellen im HTML-Dokument nicht verwendet werden, um die Eindeutigkeit zu gewährleisten.
++ **$IDprefix**: *Erforderlich* Ein Name, der allen ID-Namen für die internen \<input>-Elemente vorangestellt wird. Der ID-Name darf an anderen Stellen im HTML-Dokument nicht verwendet werden, um die Eindeutigkeit zu gewährleisten. Zudem erhält das HTML-Element diesen Namen als **ID**. Über die ID kann die Sidebar in CSS-Stylesheets oder in JavaScripts addressiert werden.
 + **$hasMainExpander**: *Optional* Wenn *true*, kann die Sidebar verkleinert und vergrößert werden. In dem Fall wird der Sidebar als erstes Element ein `<input type="checkbox">`-Element hinzugefügt. Die ID für dieses Element lautet *$IDprefix*MainExp. Für die Funktion ist in der Sidebar mindestens ein Item mit aktivierter Eigenschaft *$isMainExpanderController* erforderlich. Durch Auswertung der CSS-Pseudoklasse `:checked` kann in einem benutzerdefinierten Stylesheet die Sidebar verkleinert und vergrößert werden.
 
 #### appendItem()
