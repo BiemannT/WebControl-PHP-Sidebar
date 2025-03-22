@@ -87,6 +87,7 @@ namespace Webcontrol\Sidebar {
 
             // Wurzelelement erstellen
             $DocRoot = $Doc->createElement($this->mainElementName);
+            $DocRoot->setAttribute("id", $this->IDprefix);
             $DocRoot->setAttribute("class", "WebCtlSidebar");
             $Doc->appendChild($DocRoot);
 
