@@ -87,12 +87,14 @@
                 grid-column: 2;
             }
 
-            .WebCtlSidebarItemTitle {
+            .WebCtlSidebarItemTitle:has(+ .WebCtlSidebarItemSymbol) {
+                /* Nur, wenn neben dem Titel ein Symbol angegeben ist */
                 grid-row: 1;
                 grid-column: 3;
             }
 
-            .WebCtlSidebarItemTitle:only-child {
+            .WebCtlSidebarItemTitle {
+                /* Fallback, wenn kein Symbol angegeben ist */
                 grid-column-start: 2;
                 grid-column-end: 4;
             }
